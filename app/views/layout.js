@@ -28,7 +28,9 @@ export default class TodoView extends Marionette.LayoutView
 
   collectionEvents()
   {
-    return { add: 'itemAdded' };
+    return {
+      add: 'itemAdded'
+    };
   }
 
   onChildviewAddTodoItem(child)

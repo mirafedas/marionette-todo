@@ -11,18 +11,17 @@ class Todo extends Marionette.LayoutView
     super(options);
   }
 
-  triggers()
-  {
-    return {
-      submit: 'remove:todo:item'
-    };
-  }
-
   modelEvents()
   {
     return {
-      change: 'render'
+      change: 'render',
     };
+  }
+
+  events() {
+    return {
+      'click button': 'itemSelect'
+    }
   }
 
   ui()
@@ -31,6 +30,10 @@ class Todo extends Marionette.LayoutView
       assignee: '#id_assignee',
       text: '#id_text'
     };
+  }
+
+  itemSelect(e) {
+    this.model.destroy();
   }
 }
 

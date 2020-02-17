@@ -6,8 +6,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/,
-        loader: 'underscore-template-loader'
+        test: /\.hbs$/, loader: "handlebars-loader",
+        loader: 'underscore-template-loader',
       }
     ]
   },

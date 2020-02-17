@@ -30,10 +30,12 @@ body {
 .form > form > div {
   margin: 5px 0;
 }
-.form > form > div > input {
+
+.form > form > div > input, .edit-input {
   padding: 5px;
   font-size: 14px;
   margin: 0 10px;
+  width: 350px;
 }
 
 button {

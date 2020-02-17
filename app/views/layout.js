@@ -2,7 +2,7 @@ import Marionette from 'backbone.marionette';
 
 import FormView from './form';
 import ListView from './list';
-import LayoutTemplate from '../templates/layout.html';
+import LayoutTemplate from '../templates/layout.hbs';
 
 export default class TodoView extends Marionette.LayoutView
 {

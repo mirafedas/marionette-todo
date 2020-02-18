@@ -1,11 +1,11 @@
 import Marionette from 'backbone.marionette';
-import Handlebars from 'handlebars';
+import ListTemplate from '../templates/list.hbs';
 
 class Todo extends Marionette.LayoutView
 {
   constructor(options)
   {
-    options.template = Handlebars.compile('<span>{{this.text}} - {{this.assignee}}</span><button id="btn-remove">Remove</button>');
+    options.template = ListTemplate;
     options.tagName = 'li';
 
     super(options);

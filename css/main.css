@@ -61,3 +61,11 @@ button:hover {
 #btn-remove {
   background: #ffb347;
 }
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}

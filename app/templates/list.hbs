@@ -1,2 +1,6 @@
-<span>{{this.text}} - {{this.assignee}}</span>
+{{#if isEditMode}}
+  <input type="text" class="edit-input" value="{{this.prevText}}">
+{{else}}
+  <span>{{this.text}} - {{this.assignee}}</span>
+{{/if}}
 <button id="btn-remove">Remove</button>

@@ -7,7 +7,7 @@ class Todo extends Marionette.LayoutView
   {
     options.template = ListTemplate;
     options.tagName = 'li';
-
+    
     super(options);
   }
 
@@ -30,7 +30,9 @@ class Todo extends Marionette.LayoutView
   {
     return {
       assignee: '#id_assignee',
-      text: '#id_text'
+      text: '#id_text',
+      isEditMode: false,
+      prevText: ''
     };
   }
 
@@ -43,27 +45,17 @@ class Todo extends Marionette.LayoutView
     const newTodoText = newText.substring(0, newText.indexOf("-") - 1);
     const newAsignee = newText.substring(newText.indexOf("-") + 2);
     
+    this.model.set('isEditMode', false);
     this.model.set('assignee', newAsignee);
     this.model.set('text', newTodoText);
-    e.target.setAttribute('style', 'display: none');
   }
 
   itemEdit(e) {
-    Element.prototype.appendAfter = function (element) {
-      element.parentNode.insertBefore(this, element.nextSibling);
-    },false;
-
     const selectedItem = e.currentTarget;
-    const span = selectedItem.parentElement.firstChild;
-    const prevText = selectedItem.parentElement.firstChild.innerText;
-    const inputEl = document.createElement('input');
-
-    inputEl.setAttribute('type', 'text');
-    inputEl.setAttribute('class', 'edit-input');
-    inputEl.setAttribute('value', `${prevText}`);
-    inputEl.appendAfter(selectedItem);
-    inputEl.focus();
-    span.setAttribute('style', 'display: none');
+    const prevText = selectedItem.innerText;
+    
+    this.model.set('prevText', prevText);
+    this.model.set('isEditMode', true);
   }
 }
 

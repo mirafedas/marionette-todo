@@ -1,11 +1,11 @@
 import Marionette from 'backbone.marionette';
-import Handlebars from 'handlebars';
+import FormTemplate from '../templates/form.hbs';
 
 export default class FormView extends Marionette.LayoutView
 {
   constructor(options)
   {
-    options.template =  Handlebars.compile('<div><label for="id_text">Todo Text</label><input type="text" name="text" id="id_text" value="{{this.text}}" /></div><div><label for="id_assignee">Assign to</label><input type="text" name="assignee" id="id_assignee" value="{{this.assignee}}"/></div><button id="btn-add">Add Item</button>');
+    options.template =  FormTemplate;
     options.tagName = 'form';
 
     super(options);

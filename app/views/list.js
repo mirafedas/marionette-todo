@@ -40,9 +40,9 @@ class Todo extends Marionette.LayoutView
 
   save(e) {
     const newText = e.target.value;
-    console.log(e.target);
     const newTodoText = newText.substring(0, newText.indexOf("-") - 1);
     const newAsignee = newText.substring(newText.indexOf("-") + 2);
+    
     this.model.set('assignee', newAsignee);
     this.model.set('text', newTodoText);
     e.target.setAttribute('style', 'display: none');
@@ -61,7 +61,6 @@ class Todo extends Marionette.LayoutView
     inputEl.setAttribute('type', 'text');
     inputEl.setAttribute('class', 'edit-input');
     inputEl.setAttribute('value', `${prevText}`);
-    // inputEl.onblur = this.save;
     inputEl.appendAfter(selectedItem);
     inputEl.focus();
     span.setAttribute('style', 'display: none');

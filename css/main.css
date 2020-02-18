@@ -27,6 +27,10 @@ body {
   justify-content: center;
 }
 
+.form > form > div > label {
+  margin: 0 10px;
+}
+
 .form > form > div {
   margin: 5px 0;
 }
